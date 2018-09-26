@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@drawable/fragback"
+    tools:context=".BoardFragment">
+
+    <!-- TODO: Update blank fragment layout -->
+
+    <FrameLayout
+        android:id="@+id/halfBox"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+
+        android:layout_marginTop="@dimen/hori_side"
+        android:layout_marginHorizontal="@dimen/hori_side"
+        android:layout_marginBottom="300dp"
+        android:background="@color/transDark"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        ></FrameLayout>
+
+    <TextView
+        android:id="@+id/textConstantName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:text="Name : "
+        android:textSize="@dimen/medium_text"
+
+        android:layout_margin="@dimen/hori_side"
+        app:layout_constraintVertical_bias="1"
+        app:layout_constraintRight_toLeftOf="@id/textPrintName"
+        app:layout_constraintTop_toTopOf="@id/halfBox"
+        app:layout_constraintLeft_toLeftOf="@id/halfBox"
+        />
+
+    <TextView
+        android:id="@+id/textPrintName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:layout_margin="@dimen/hori_side"
+        android:text="Steve"
+
+        android:textSize="@dimen/medium_text"
+
+        app:layout_constraintTop_toTopOf="@id/halfBox"
+        app:layout_constraintLeft_toRightOf="@id/textConstantName"
+        />
+
+    <TextView
+        android:id="@+id/textConstantLevel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:text="Level : "
+        android:textSize="@dimen/medium_text"
+
+        android:layout_margin="@dimen/hori_side"
+        app:layout_constraintVertical_bias="1"
+        app:layout_constraintRight_toLeftOf="@id/textPrintLevel"
+        app:layout_constraintTop_toBottomOf="@id/textConstantName"
+        app:layout_constraintLeft_toLeftOf="@id/halfBox"
+        />
+
+    <TextView
+        android:id="@+id/textPrintLevel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:layout_margin="@dimen/hori_side"
+        android:text="1"
+
+        android:textSize="@dimen/medium_text"
+
+        app:layout_constraintTop_toBottomOf="@id/textPrintName"
+        app:layout_constraintLeft_toRightOf="@id/textConstantLevel"
+        />
+
+    <TextView
+        android:id="@+id/textConstantState"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:text="State : "
+        android:textSize="@dimen/medium_text"
+
+        android:layout_margin="@dimen/hori_side"
+        app:layout_constraintVertical_bias="1"
+        app:layout_constraintRight_toLeftOf="@id/textPrintState"
+        app:layout_constraintTop_toBottomOf="@id/textConstantLevel"
+        app:layout_constraintLeft_toLeftOf="@id/halfBox"
+        />
+
+    <TextView
+        android:id="@+id/textPrintState"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:layout_margin="@dimen/hori_side"
+        android:text="Steve"
+
+        android:textSize="@dimen/medium_text"
+
+        app:layout_constraintTop_toBottomOf="@id/textPrintLevel"
+        app:layout_constraintLeft_toRightOf="@id/textConstantState"
+        />
+
+</android.support.constraint.ConstraintLayout>
