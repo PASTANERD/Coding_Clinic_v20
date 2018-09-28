@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    >
+    
+    <FrameLayout
+        android:id="@+id/noti_box1"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/box_height"
+        android:layout_margin="@dimen/verti_side"
+        android:background="@color/fg_white"
+        app:layout_constraintTop_toTopOf="parent"
+        ></FrameLayout>
+
+
+
+    <ImageView
+        android:id="@+id/id_image1"
+        android:src="@drawable/ic_if_user"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/verti_side"
+        android:tint="@color/text_black"
+        app:layout_constraintLeft_toLeftOf="@+id/noti_box1"
+        app:layout_constraintTop_toTopOf="@+id/noti_box1"
+        />
+
+    <TextView
+        android:id="@+id/id_user1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/testcase_name"
+        android:textColor="@color/text_black"
+        android:textStyle="bold"
+        android:layout_margin="@dimen/verti_side"
+        app:layout_constraintTop_toTopOf="@+id/noti_box1"
+        app:layout_constraintLeft_toRightOf="@+id/id_image1"
+        />
+
+    <TextView
+        android:id="@+id/content_user1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/text_black"
+        android:text="@string/testcase_string"
+        android:layout_margin="@dimen/verti_side"
+        app:layout_constraintLeft_toLeftOf="@+id/noti_box1"
+        app:layout_constraintBottom_toBottomOf="@+id/noti_box1"/>
+
+    <FrameLayout
+        android:id="@+id/noti_box2"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/box_height"
+        android:layout_margin="@dimen/verti_side"
+        android:background="@color/fg_white"
+        app:layout_constraintTop_toBottomOf="@id/noti_box1"
+        ></FrameLayout>
+
+    <FrameLayout
+        android:id="@+id/noti_box3"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/box_height"
+        android:layout_margin="@dimen/verti_side"
+        android:background="@color/fg_white"
+        app:layout_constraintTop_toBottomOf="@id/noti_box2"
+        ></FrameLayout>
+
+    <FrameLayout
+        android:id="@+id/noti_box4"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/box_height"
+        android:layout_margin="@dimen/verti_side"
+        android:background="@color/fg_white"
+        app:layout_constraintTop_toBottomOf="@id/noti_box3"
+        ></FrameLayout>
+
+
+</android.support.constraint.ConstraintLayout>

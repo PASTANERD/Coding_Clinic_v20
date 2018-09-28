@@ -3,6 +3,8 @@
 
     <dimen name="hori_side">20dp</dimen>
     <dimen name="verti_side">12dp</dimen>
+    <dimen name="box_height">80dp</dimen>
+
     <dimen name="editText_width">150dp</dimen>
     <dimen name="editText_height">30dp</dimen>
 

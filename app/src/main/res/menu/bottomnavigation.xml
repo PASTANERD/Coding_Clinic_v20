@@ -9,10 +9,18 @@
         android:enabled="true"
         />
 
+
     <item
-        android:id="@+id/bottom_menu_search"
-        android:icon="@drawable/ic_if_ic_search"
-        android:title="Search"
+        android:id="@+id/bottom_menu_message"
+        android:icon="@drawable/ic_chat_bubble_outline_black_24dp"
+        android:title="Message"
+        android:enabled="true"
+        />
+
+    <item
+        android:id="@+id/bottom_menu_notification"
+        android:icon="@drawable/ic_if_bell_2199103"
+        android:title="Notification"
         android:enabled="true"
         />
 
@@ -23,11 +31,6 @@
         android:enabled="true"
         />
 
-    <item
-        android:id="@+id/bottom_menu_setting"
-        android:icon="@drawable/ic_if_setting"
-        android:title="Setting"
-        android:enabled="true"
-        />
+
 
 </menu>

@@ -5,4 +5,14 @@
     <color name="colorAccent">#FF4081</color>
     <color name="transDark">#9F000000</color>
     <color name="transWhite">#AFFFFFFF</color>
+
+    <color name="bg_pink">#FB929E</color>
+    <color name="fg_pink">#AFFFDFDF</color>
+    <color name="fg_pink_thick">#FFDFDF</color>
+    <color name="fg_white">#AFFFF6F6</color>
+    <color name="fg_white_thick">#FFF6F6</color>
+    <color name="bg_blue">#AEDEFC</color>
+    <color name="text_black">#9F000000</color>
+
+    <color name="glass">#FFFFFFFF</color>
 </resources>
