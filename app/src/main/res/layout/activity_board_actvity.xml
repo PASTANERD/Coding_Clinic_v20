@@ -1,11 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/boardbackground"
-    tools:context=".BoardActvity">
+    tools:context=".BoardActvity"
+    >
+
+
+    <!--
+        android:id="@+id/board_background"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/boardbackground"
+
+        -->
+
 
     <FrameLayout
         android:layout_width="match_parent"
@@ -15,8 +27,18 @@
         app:layout_constraintVertical_bias="1"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toTopOf="@+id/bottom_navigation"
-        />
+    >
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
 
+            <FrameLayout
+                android:id="@+id/fragment_place"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+        </ScrollView>
+        </FrameLayout>
 
     <TextView
         android:id="@+id/textGreeting"
@@ -43,17 +65,16 @@
         app:layout_constraintRight_toRightOf="parent"
         />
 
-    <android.support.design.widget.BottomNavigationView
-        android:id="@+id/bottom_navigation"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:menu="@menu/bottomnavigation"
-        app:itemIconTint="@color/text_black"
-        app:itemTextColor="@color/text_black"
-        android:background="@color/fg_white_thick"
+        <android.support.design.widget.BottomNavigationView
+            android:id="@+id/bottom_navigation"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
 
-        app:layout_constraintTop_toBottomOf="@+id/onBoard"
-        app:layout_constraintBottom_toBottomOf="parent"/>
-
+            android:background="@color/fg_white_thick"
+            app:itemIconTint="@color/text_black"
+            app:itemTextColor="@color/text_black"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/onBoard"
+            app:menu="@menu/bottomnavigation" />
 
 </android.support.constraint.ConstraintLayout>

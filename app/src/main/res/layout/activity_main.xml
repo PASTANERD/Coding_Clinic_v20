@@ -19,7 +19,6 @@
         android:background="@color/fg_white"
         />
 
-
     <TextView
         android:id="@+id/centered_text"
         android:layout_width="wrap_content"
