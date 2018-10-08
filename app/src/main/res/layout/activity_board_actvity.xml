@@ -1,44 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/boardbackground"
-    tools:context=".BoardActvity"
+    tools:context=".activity.BoardActvity"
     >
-
-
-    <!--
-        android:id="@+id/board_background"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@drawable/boardbackground"
-
-        -->
-
 
     <FrameLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
         android:id="@+id/onBoard"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/match_constraint"
         android:background="@color/fg_pink"
-        app:layout_constraintVertical_bias="1"
-        app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toTopOf="@+id/bottom_navigation"
-    >
-        <ScrollView
+        app:layout_constraintTop_toBottomOf="@+id/toolbar"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent">
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/recyclerView_board"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
-            <FrameLayout
-                android:id="@+id/fragment_place"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"/>
+        </android.support.v7.widget.RecyclerView>
 
-        </ScrollView>
-        </FrameLayout>
+    </FrameLayout>
 
     <TextView
         android:id="@+id/textGreeting"
@@ -47,11 +34,10 @@
         android:layout_marginVertical="@dimen/verti_side"
         android:text="Nice to See you, "
         android:textColor="@color/text_black"
-        app:layout_constraintHorizontal_chainStyle="packed"
         app:layout_constraintBottom_toTopOf="@+id/bottom_navigation"
+        app:layout_constraintHorizontal_chainStyle="packed"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toLeftOf="@id/textName"
-        />
+        app:layout_constraintRight_toLeftOf="@id/textName" />
 
     <TextView
         android:id="@+id/textName"
@@ -62,19 +48,33 @@
         android:textColor="@color/text_black"
         app:layout_constraintBottom_toTopOf="@+id/bottom_navigation"
         app:layout_constraintLeft_toRightOf="@+id/textGreeting"
+        app:layout_constraintRight_toRightOf="parent" />
+
+    <android.support.design.widget.BottomNavigationView
+        android:id="@+id/bottom_navigation"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/fg_white_thick"
+        app:itemIconTint="@color/text_black"
+        app:itemTextColor="@color/text_black"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/onBoard"
         app:layout_constraintRight_toRightOf="parent"
-        />
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:menu="@menu/bottomnavigation" />
 
-        <android.support.design.widget.BottomNavigationView
-            android:id="@+id/bottom_navigation"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+    <android.support.v7.widget.Toolbar xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@color/bg_blue"
+        app:title="@string/title_toolbar"
+        app:titleTextColor="#fff"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/onBoard"
 
-            android:background="@color/fg_white_thick"
-            app:itemIconTint="@color/text_black"
-            app:itemTextColor="@color/text_black"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/onBoard"
-            app:menu="@menu/bottomnavigation" />
+        ></android.support.v7.widget.Toolbar>
 
 </android.support.constraint.ConstraintLayout>

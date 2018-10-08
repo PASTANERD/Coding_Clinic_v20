@@ -1,4 +1,4 @@
-package com.example.a0xbistrot.coding_clinic_v20;
+package com.example.a0xbistrot.coding_clinic_v20.fragment;
 
 import android.app.Activity;
 import android.support.constraint.ConstraintLayout;
@@ -11,7 +11,10 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
 
-public class BoardFragment extends Fragment {
+import com.example.a0xbistrot.coding_clinic_v20.BaseFragment;
+import com.example.a0xbistrot.coding_clinic_v20.R;
+
+public class BoardFragment extends BaseFragment {
 
     TextView text_hello;
     Button button_tap;

@@ -1,8 +1,6 @@
-package com.example.a0xbistrot.coding_clinic_v20;
+package com.example.a0xbistrot.coding_clinic_v20.activity;
 
 import android.content.Intent;
-import android.support.v7.app.ActionBar;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -10,15 +8,18 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.a0xbistrot.coding_clinic_v20.BaseActivity;
 import com.example.a0xbistrot.coding_clinic_v20.R;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends BaseActivity {
 
-    String inputName;
-    Button theButton;
-    TextView variaed_text;
-    EditText editName;
-    Intent loginPhase;
+    public static final String NAME_KEY = "NAME_KEY";
+
+    private String inputName;
+    private Button theButton;
+    private TextView variaed_text;
+    private EditText editName;
+    private Intent loginPhase;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,6 +28,8 @@ public class MainActivity extends AppCompatActivity {
         setting();
 
     }
+
+
 
 
     public void buttonPush(View v){
