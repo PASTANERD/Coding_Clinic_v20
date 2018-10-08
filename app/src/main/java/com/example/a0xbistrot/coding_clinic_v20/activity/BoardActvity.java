@@ -43,6 +43,7 @@ public class BoardActvity extends BaseActivity {
 
 
         FragmentSetting();
+        RecyclerViewSetting();
 
         ToolbarSetting();
 
