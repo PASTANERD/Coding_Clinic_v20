@@ -10,6 +10,10 @@
     <dimen name="editText_width">150dp</dimen>
     <dimen name="editText_height">30dp</dimen>
 
+    <dimen name="glideImage_width">320dp</dimen>
+    <dimen name="gildeImage_height">300dp</dimen>
+
+
     <dimen name="big_text">50dp</dimen>
     <dimen name="medium_text">30dp</dimen>
 </resources>

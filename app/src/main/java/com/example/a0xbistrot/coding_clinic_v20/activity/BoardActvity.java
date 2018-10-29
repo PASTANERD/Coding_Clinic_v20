@@ -43,7 +43,7 @@ public class BoardActvity extends BaseActivity {
 
 
         FragmentSetting();
-        RecyclerViewSetting();
+        //RecyclerViewSetting();
 
         ToolbarSetting();
 
@@ -127,7 +127,7 @@ public class BoardActvity extends BaseActivity {
                 break;
         }
     }
-
+/*
     private void RecyclerViewSetting(){
         recyclerView = findViewById(R.id.recyclerView_board);
         recyclerView.setHasFixedSize(true);
@@ -149,7 +149,7 @@ public class BoardActvity extends BaseActivity {
 
         recyclerView.setAdapter(recyclerAdapter);
     }
-
+*/
 
     String givenName;
     TextView mainName;
@@ -163,8 +163,8 @@ public class BoardActvity extends BaseActivity {
     UserFragment userFragment;
     NotificationFragment notificationFragment;
 
-    RecyclerView recyclerView;
-    RecyclerView.LayoutManager recyclerManager;
+    //RecyclerView recyclerView;
+    //RecyclerView.LayoutManager recyclerManager;
 
 
 }
