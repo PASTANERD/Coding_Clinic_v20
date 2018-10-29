@@ -57,7 +57,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginVertical="@dimen/hori_side"
-        android:text="Tap"
+        android:text="Upload"
         android:background="@color/bg_blue"
         android:textColor="@color/text_black"
         app:layout_constraintBottom_toBottomOf="parent"
