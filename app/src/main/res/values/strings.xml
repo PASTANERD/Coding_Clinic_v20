@@ -1,17 +1,20 @@
 <resources>
-    <string name="app_name">Coding_Clinic_v2.0</string>
-    <string name="title_toolbar">_Boyce</string>
+    <string name="app_name">ingstagram</string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 
-    <string name="date">yy:mm:dd</string>
+    <string name="login_text_title">Ingstagram</string>
+    <string name="login_text_id">ID</string>
+    <string name="login_text_pw">PW</string>
+    <string name="login_btn_text">Go!</string>
 
-    <string name="testcase_string">This is a string for test case</string>
-    <string name="testcase_name">Racheal</string>
+    <string name="feed_user_id_test">user20181105</string>
 
-
-    <string name="glide_puppy_url">https://post-phinf.pstatic.net/MjAxODAxMjJfMTU4/MDAxNTE2NTk5MzE0Mzk3.tpo98J5uKOWXI_DKeVshDaXv0A-6fpTvDdbDWX3Uqbkg.dJcyQ8Y4rABIDFt2kbJRsUVjgLmT0Mo9hYVurPAgyfIg.JPEG/6-1.jpg?type=w1200</string>
-
+    <string name="upload_text_guide">Tab here to upload!</string>
+    <string name="upload_dialog">Please select your image</string>
+    <string name="upload_dialog_camera">Camera</string>
+    <string name="upload_dialog_album">Album</string>
+    <string anme="upload_dialog_cancel">Cancel</string>
 
 </resources>

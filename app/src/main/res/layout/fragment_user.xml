@@ -1,146 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    >
 
-    tools:context=".fragment.UserFragment">
+    <include
+        android:id="@+id/toolbar"
+        layout="@layout/view_toolbar"/>
 
-    <!-- TODO: Update blank fragment layout -->
 
-    <FrameLayout
-        android:id="@+id/halfBox1"
-        android:layout_width="match_parent"
-        android:layout_height="100dp"
-
-        android:layout_marginTop="@dimen/verti_side"
-        android:layout_marginHorizontal="@dimen/hori_side"
-
-        android:background="@color/fg_white"
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="User"
+        android:textSize="@dimen/text_size_big"
+        android:textColor="@color/text_default_color"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/halfBox2"
-        app:layout_constraintVertical_chainStyle="packed"
-        app:layout_constraintVertical_bias="0"
-        ></FrameLayout>
-    <!--android:layout_marginBottom="300dp"-->
-
-    <FrameLayout
-        android:id="@+id/halfBox2"
-        android:layout_width="match_parent"
-        android:layout_height="100dp"
-
-
-        android:layout_marginHorizontal="@dimen/hori_side"
-
-        android:background="@color/fg_white"
-        app:layout_constraintTop_toBottomOf="@id/halfBox1"
-        app:layout_constraintBottom_toTopOf="@id/halfBox3"
-
-        ></FrameLayout>
-
-    <FrameLayout
-        android:id="@+id/halfBox3"
-        android:layout_width="match_parent"
-        android:layout_height="100dp"
-
-
-        android:layout_marginHorizontal="@dimen/hori_side"
-
-        android:background="@color/fg_white"
-        app:layout_constraintTop_toBottomOf="@id/halfBox2"
         app:layout_constraintBottom_toBottomOf="parent"
-
-        ></FrameLayout>
-
-    <TextView
-        android:id="@+id/textConstantName"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-
-        android:text="Name : "
-        android:textSize="@dimen/medium_text"
-        android:textColor="@color/text_black"
-
-        android:layout_margin="@dimen/hori_side"
-        app:layout_constraintVertical_bias="1"
-        app:layout_constraintRight_toLeftOf="@id/textPrintName"
-        app:layout_constraintTop_toTopOf="@id/halfBox1"
-        app:layout_constraintLeft_toLeftOf="@id/halfBox1"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
         />
 
-    <TextView
-        android:id="@+id/textPrintName"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="@dimen/hori_side"
-
-        android:text="@string/testcase_name"
-        android:textSize="@dimen/medium_text"
-        android:textColor="@color/text_black"
-
-        app:layout_constraintTop_toTopOf="@id/halfBox1"
-        app:layout_constraintLeft_toRightOf="@id/textConstantName"
-        />
-
-    <TextView
-        android:id="@+id/textConstantLevel"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-
-        android:text="Level : "
-        android:textSize="@dimen/medium_text"
-        android:textColor="@color/text_black"
-
-        android:layout_margin="@dimen/hori_side"
-        app:layout_constraintVertical_bias="1"
-        app:layout_constraintRight_toLeftOf="@id/textPrintLevel"
-        app:layout_constraintTop_toTopOf="@id/halfBox2"
-        app:layout_constraintLeft_toLeftOf="@id/halfBox2"
-        />
-
-    <TextView
-        android:id="@+id/textPrintLevel"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-
-        android:layout_margin="@dimen/hori_side"
-        android:text="1"
-        android:textColor="@color/text_black"
-        android:textSize="@dimen/medium_text"
-
-        app:layout_constraintTop_toTopOf="@id/halfBox2"
-        app:layout_constraintLeft_toRightOf="@id/textConstantLevel"
-        />
-
-    <TextView
-        android:id="@+id/textConstantState"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-
-        android:text="State : "
-        android:textSize="@dimen/medium_text"
-        android:textColor="@color/text_black"
-
-        android:layout_margin="@dimen/hori_side"
-        app:layout_constraintVertical_bias="1"
-        app:layout_constraintRight_toLeftOf="@id/textPrintState"
-        app:layout_constraintTop_toTopOf="@id/halfBox3"
-        app:layout_constraintLeft_toLeftOf="@id/halfBox3"
-        />
-
-    <TextView
-        android:id="@+id/textPrintState"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-
-        android:layout_margin="@dimen/hori_side"
-        android:text="none"
-        android:textColor="@color/text_black"
-        android:textSize="@dimen/medium_text"
-
-        app:layout_constraintTop_toTopOf="@id/halfBox3"
-        app:layout_constraintLeft_toRightOf="@id/textConstantState"
-        />
-
-</android.support.constraint.ConstraintLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

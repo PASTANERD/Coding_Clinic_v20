@@ -1,18 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#3F51B5</color>
-    <color name="colorPrimaryDark">#303F9F</color>
-    <color name="colorAccent">#FF4081</color>
-    <color name="transDark">#9F000000</color>
-    <color name="transWhite">#AFFFFFFF</color>
+    <color name="colorPrimary">#FFFFFF</color>
+    <color name="colorPrimaryDark">#333333</color>
+    <color name="colorAccent">#158ad0</color>
+    <color name="colorAccentDark">#0e5e8c</color>
+    <color name="colorAccentLight">#85aabf</color>
 
-    <color name="bg_pink">#FB929E</color>
-    <color name="fg_pink">#AFFFDFDF</color>
-    <color name="fg_pink_thick">#FFDFDF</color>
-    <color name="fg_white">#AFFFF6F6</color>
-    <color name="fg_white_thick">#FFF6F6</color>
-    <color name="bg_blue">#AEDEFC</color>
-    <color name="text_black">#9F000000</color>
+    <color name="background_default">#FFFFFF</color>
+    <color name="text_default_color">#AFFFFFFF</color>
 
-    <color name="glass">#FFFFFFFF</color>
+    <color name="navi_icon_black">#9F0F0F0F</color>
+
 </resources>
