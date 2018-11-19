@@ -1,4 +1,4 @@
-package com.example.a0xbistrot.codingcleanic_v20.data.network.api;
+package com.example.a0xbistrot.codingcleanic_v20.network.api;
 
 import com.example.a0xbistrot.codingcleanic_v20.data.entity.GithubUser;
 

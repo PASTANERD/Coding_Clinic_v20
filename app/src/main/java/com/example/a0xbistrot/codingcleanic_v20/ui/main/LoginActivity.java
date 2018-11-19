@@ -8,6 +8,8 @@ import android.widget.Button;
 import android.widget.EditText;
 
 import com.example.a0xbistrot.codingcleanic_v20.R;
+import com.example.a0xbistrot.codingcleanic_v20.data.entity.User;
+import com.example.a0xbistrot.codingcleanic_v20.data.source.UserLocalSource;
 import com.example.a0xbistrot.codingcleanic_v20.ui.basement.BaseActivity;
 
 import io.reactivex.Observable;
@@ -22,6 +24,7 @@ public class LoginActivity extends BaseActivity {
     private String data_pw;
 
     private Intent mainActivity;
+    private static UserLocalSource userLocalSource;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,6 +52,8 @@ public class LoginActivity extends BaseActivity {
         login_pw = findViewById(R.id.login_pw);
         login_button = findViewById(R.id.login_btn);
 
+        userLocalSource  = new UserLocalSource();
+
     }
 
     private void readInput(){
@@ -57,29 +62,10 @@ public class LoginActivity extends BaseActivity {
     }
 
 
-    public void loginButton(View view){
-        /*
-        mainActivity = new Intent(context, MainActivity.class);
-        readInput();
-        if(data_id.length() == 0){
-            displayToast("Please write your ID.");
-        }
-        else if(data_pw.length() == 0){
-            displayToast("Please write your Password.");
-        }
-        else {
-            mainActivity.putExtra(MainActivity.USER_KEY, data_id);
-            //mainActivity.putExtra("userPassword", data_pw)
-            startActivity(mainActivity);
-        }
-        */
-    }
-
     private void setButton(){
         login_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                mainActivity = new Intent(context, MainActivity.class);
                 readInput();
                 if(data_id.length() == 0){
                     displayToast("Please write your ID.");
@@ -88,12 +74,22 @@ public class LoginActivity extends BaseActivity {
                     displayToast("Please write your Password.");
                 }
                 else {
-                    mainActivity.putExtra(MainActivity.USER_KEY, data_id);
+                    User user = userLocalSource.getMaster();
+                    if(user == null) createMaster(data_id);
+                    mainActivity = new Intent(context, MainActivity.class)
+                            .putExtra(MainActivity.USER_KEY, data_id);
                     //mainActivity.putExtra("userPassword", data_pw)
                     startActivity(mainActivity);
+                    finish();
                 }
             }
         });
+    }
+
+    private void createMaster(String name){
+        String avatarUrl = "https://avatars2.githubusercontent.com/u/37102651?s=400&v=4";
+        User user = new User(name, avatarUrl, true);
+        userLocalSource.insert(user);
     }
 
     private Observable<Boolean> checkPermission(){

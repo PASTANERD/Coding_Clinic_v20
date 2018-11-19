@@ -1,8 +1,8 @@
-package com.example.a0xbistrot.codingcleanic_v20.data.network.helper;
+package com.example.a0xbistrot.codingcleanic_v20.data.source;
 
 import com.example.a0xbistrot.codingcleanic_v20.data.entity.GithubUser;
-import com.example.a0xbistrot.codingcleanic_v20.data.network.RetrofitStore;
-import com.example.a0xbistrot.codingcleanic_v20.data.network.api.GithubService;
+import com.example.a0xbistrot.codingcleanic_v20.network.RetrofitStore;
+import com.example.a0xbistrot.codingcleanic_v20.network.api.GithubService;
 
 import java.util.List;
 

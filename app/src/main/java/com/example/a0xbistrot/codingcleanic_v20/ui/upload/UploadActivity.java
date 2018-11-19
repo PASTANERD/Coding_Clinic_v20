@@ -160,4 +160,28 @@ public class UploadActivity extends BaseActivity {
     */
 
 
+    private void setFeedData(){
+        /*
+        String content_txt = getString(R.string.app_name);
+        User user = new UserLocalSource().getMaster();
+        for (int i = 0 ; i < 6 ; i++){
+            feedLocalSource.insert(new Feed(user.getId(),"drawable://" + R.drawable.content_pic1, content_txt));
+            feedLocalSource.insert(new Feed(user.getId(),"drawable://" + R.drawable.content_pic2, content_txt));
+            feedLocalSource.insert(new Feed(user.getId(),"drawable://" + R.drawable.content_pic3, content_txt));
+            feedLocalSource.insert(new Feed(user.getId(),"drawable://" + R.drawable.content_pic4, content_txt));
+            feedLocalSource.insert(new Feed(user.getId(),"drawable://" + R.drawable.content_pic5, content_txt));
+            feedLocalSource.insert(new Feed(user.getId(),"drawable://" + R.drawable.content_pic6, content_txt));
+
+            feedItemsList.add(new FeedItem("2017.12.24", R.drawable.content_pic1));
+            feedItemsList.add(new FeedItem("2017.12.28", R.drawable.content_pic2));
+            feedItemsList.add(new FeedItem("2018.01.04", R.drawable.content_pic3));
+            feedItemsList.add(new FeedItem("2018.01.08", R.drawable.content_pic4));
+            feedItemsList.add(new FeedItem("2018.01.15", R.drawable.content_pic5));
+            feedItemsList.add(new FeedItem("2018.01.28", R.drawable.content_pic6));
+
+        }
+        */
+        //feedAdapter.addAll(feedItemsList);
+
+    }
 }

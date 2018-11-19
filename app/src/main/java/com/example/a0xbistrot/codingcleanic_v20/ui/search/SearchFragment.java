@@ -7,7 +7,7 @@ import android.view.ViewGroup;
 
 import com.example.a0xbistrot.codingcleanic_v20.R;
 import com.example.a0xbistrot.codingcleanic_v20.data.entity.GithubUser;
-import com.example.a0xbistrot.codingcleanic_v20.data.network.helper.GithubRemoteDataSource;
+import com.example.a0xbistrot.codingcleanic_v20.data.source.GithubRemoteDataSource;
 import com.example.a0xbistrot.codingcleanic_v20.ui.basement.BaseFragment;
 import com.example.a0xbistrot.codingcleanic_v20.ui.effect.LoadingBar;
 

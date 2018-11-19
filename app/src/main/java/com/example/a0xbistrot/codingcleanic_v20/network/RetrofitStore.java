@@ -1,4 +1,4 @@
-package com.example.a0xbistrot.codingcleanic_v20.data.network;
+package com.example.a0xbistrot.codingcleanic_v20.network;
 
 import com.facebook.stetho.okhttp3.StethoInterceptor;
 

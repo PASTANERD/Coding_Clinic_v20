@@ -5,16 +5,47 @@ import com.google.gson.annotations.SerializedName;
 
 import java.util.Date;
 
+import androidx.room.ColumnInfo;
+import androidx.room.Entity;
+import androidx.room.ForeignKey;
+import androidx.room.PrimaryKey;
+
+import static androidx.room.ForeignKey.CASCADE;
+
+@Entity(foreignKeys = {
+        @ForeignKey(
+                entity = Feed.class,
+                parentColumns = "id",
+                childColumns = "feed_id",
+                onDelete = CASCADE),
+        @ForeignKey(
+                entity = User.class,
+                parentColumns = "id",
+                childColumns = "user_id")
+})
 public class Reply {
 
+    @PrimaryKey(autoGenerate = true)
     private long id;
 
+    @ColumnInfo(name = "feed_id")
     @SerializedName("feed_id")
     private long feed_id;
 
-    private User user;
+    @ColumnInfo(name = "user_id")
+    @SerializedName("user_id")
+    private long user_id;
 
     private String text;
+
+    @ColumnInfo(name = "created_date")
+    @SerializedName("created_date")
+    private Date created_date;
+
+    @ColumnInfo(name = "update_date")
+    @SerializedName("update_date")
+    private Date update_date;
+
 
     public long getId() {
         return id;
@@ -32,14 +63,13 @@ public class Reply {
         this.feed_id = feed_id;
     }
 
-    public User getUser() {
-        return user;
+    public long getUser_id() {
+        return user_id;
     }
 
-    public void setUser(User user) {
-        this.user = user;
+    public void setUser_id(int user_id) {
+        this.user_id = user_id;
     }
-
     public String getText() {
         return text;
     }
@@ -56,17 +86,14 @@ public class Reply {
         this.created_date = created_date;
     }
 
-    public Date getUpload_date() {
-        return upload_date;
+
+    public Date getUpdate_date() {
+        return update_date;
     }
 
-    public void setUpload_date(Date upload_date) {
-        this.upload_date = upload_date;
+    public void setUpdate_date(Date update_date) {
+        this.update_date = update_date;
     }
 
-    @SerializedName("created_date")
-    private Date created_date;
 
-    @SerializedName("upload_date")
-    private Date upload_date;
 }
