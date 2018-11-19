@@ -30,9 +30,16 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent">
+            
+            <com.example.a0xbistrot.codingcleanic_v20.ui.view.SquareImageView
+                android:id="@+id/upload_upload_image"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:adjustViewBounds="true"
+                android:visibility="invisible"/>
 
             <ImageView
-                android:id="@+id/upload_upload_image"
+                android:id="@+id/upload_upload_icon"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:src="@drawable/ic_file_upload_black_24dp"
@@ -49,7 +56,7 @@
                 android:layout_height="wrap_content"
                 android:text="@string/upload_text_guide"
                 android:textSize="@dimen/text_size_middle"
-                app:layout_constraintTop_toBottomOf="@id/upload_upload_image"
+                app:layout_constraintTop_toBottomOf="@id/upload_upload_icon"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent"

@@ -8,6 +8,7 @@
     <string name="login_text_id">ID</string>
     <string name="login_text_pw">PW</string>
     <string name="login_btn_text">Go!</string>
+    <string name="login_permission">Login Success</string>
 
     <string name="feed_user_id_test">user20181105</string>
 

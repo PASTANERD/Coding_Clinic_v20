@@ -19,6 +19,7 @@ import androidx.fragment.app.FragmentTransaction;
 public class MainActivity extends BaseActivity {
 
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -26,7 +27,7 @@ public class MainActivity extends BaseActivity {
 
         setArgument();
         initFragments();
-
+        setToolbar(TOOLBAR_REQUEST);
         findView();
         setBottomNavigationView();
 

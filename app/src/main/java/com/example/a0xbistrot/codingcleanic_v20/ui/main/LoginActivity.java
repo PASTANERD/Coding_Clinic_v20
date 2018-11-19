@@ -1,5 +1,6 @@
 package com.example.a0xbistrot.codingcleanic_v20.ui.main;
 
+import android.Manifest;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -8,6 +9,9 @@ import android.widget.EditText;
 
 import com.example.a0xbistrot.codingcleanic_v20.R;
 import com.example.a0xbistrot.codingcleanic_v20.ui.basement.BaseActivity;
+
+import io.reactivex.Observable;
+import io.reactivex.functions.Consumer;
 
 public class LoginActivity extends BaseActivity {
 
@@ -23,8 +27,20 @@ public class LoginActivity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+        setToolbar(TOOLBAR_NOT_REQUEST);
         findView();
         setButton();
+
+        checkPermission().subscribe(new Consumer<Boolean>(){
+            @Override
+            public void accept(Boolean granted) {
+                if (!granted) {
+                    displayToast(getString(R.string.login_permission));
+                    //Toast.makeText(context, R.string.splash_permission, Toast.LENGTH_SHORT).show();
+                    finish();
+                }
+            }
+        });
 
     }
 
@@ -78,6 +94,10 @@ public class LoginActivity extends BaseActivity {
                 }
             }
         });
+    }
+
+    private Observable<Boolean> checkPermission(){
+        return rxPermissions.request(Manifest.permission.READ_EXTERNAL_STORAGE);
     }
 
 
