@@ -1,5 +1,7 @@
 package com.example.a0xbistrot.codingcleanic_v20.db;
 
+import android.content.Context;
+
 import com.example.a0xbistrot.codingcleanic_v20.data.entity.Feed;
 import com.example.a0xbistrot.codingcleanic_v20.data.entity.Like;
 import com.example.a0xbistrot.codingcleanic_v20.data.entity.Reply;
@@ -32,6 +34,7 @@ public abstract class AppDatabase extends RoomDatabase {
             instance = Room.databaseBuilder(
                     BaseApplication.getInstance(), AppDatabase.class, "app_database")
                     .fallbackToDestructiveMigration() // Migration을 하지 않고 매번 데이터베이스 스키마를 새로 생성함
+                    .allowMainThreadQueries()
                     .build();
         }
 
