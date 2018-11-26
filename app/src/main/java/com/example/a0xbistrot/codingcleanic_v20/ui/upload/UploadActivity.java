@@ -1,16 +1,15 @@
 package com.example.a0xbistrot.codingcleanic_v20.ui.upload;
 
-import android.Manifest;
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
-import android.os.Environment;
-import android.provider.MediaStore;
 import android.text.TextUtils;
-import android.util.Log;
+import android.view.LayoutInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
@@ -23,14 +22,16 @@ import com.example.a0xbistrot.codingcleanic_v20.data.source.FeedLocalSource;
 import com.example.a0xbistrot.codingcleanic_v20.data.source.UserLocalSource;
 import com.example.a0xbistrot.codingcleanic_v20.ui.basement.BaseActivity;
 import com.example.a0xbistrot.codingcleanic_v20.util.FileUtil;
-import com.tbruyelle.rxpermissions2.RxPermissions;
+import com.google.android.material.textfield.TextInputEditText;
 
-import java.io.File;
-import java.io.IOException;
+import org.w3c.dom.Text;
+
+import java.util.zip.Inflater;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.widget.Toolbar;
-import androidx.core.content.FileProvider;
+import androidx.core.content.ContextCompat;
+
 
 public class UploadActivity extends BaseActivity {
 
@@ -44,24 +45,44 @@ public class UploadActivity extends BaseActivity {
     private ImageView upload_img_upload;
     private ImageView upload_img_icon;
     private TextView upload_text_guide;
+    private TextInputEditText inputText;
     private FrameLayout upload_button_area;
 
-    private UserLocalSource userLocalSource;
-    private FeedLocalSource feedLocalSource;
+    private UserLocalSource userLocalSource = new UserLocalSource();
+    private FeedLocalSource feedLocalSource = new FeedLocalSource();
+
+    private String imagePath;
+    private AlertDialog dialog;
+
+
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_upload);
         setToolbar(TOOLBAR_REQUEST);
-        initialize();
         findView();
         setUploadAreaButton();
     }
 
     @Override
     protected void initToolBar(Toolbar toolbar) {
+        /*
         super.initToolBar(toolbar);
+        toolbar.setNavigationIcon(ContextCompat.getDrawable(context, R.drawable.ic_arrow_back_white_24dp));
+        toolbar.inflateMenu(R.menu.toolbar_menu);
+        toolbar.setOnMenuItemClickListener(new Toolbar.OnMenuItemClickListener() {
+            @Override
+            public boolean onMenuItemClick(MenuItem item) {
+                switch (item.getItemId()) {
+                    case R.id.toolbar_upload:
+                        //upload();
+                        break;
+                }
+                return true;
+            }
+        });
+        */
     }
 
     private void findView(){
@@ -71,7 +92,32 @@ public class UploadActivity extends BaseActivity {
         upload_button_area = findViewById(R.id.upload_tab_area);
     }
 
-    private void initialize(){
+    private void initializeDialog(){
+        AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(context);
+        //LayoutInflater inflater = this.getLayoutInflater();
+        final View viewInflater = LayoutInflater.from(context).inflate(R.layout.view_dialog_feedtext, null);
+        dialogBuilder.setTitle("Test Title");
+        dialogBuilder.setMessage("Test Message")
+                .setView(viewInflater)
+                .setCancelable(false)
+                .setPositiveButton("Positive", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        //inputText = inflater.inflate(R.layout.view_dialog_feedtext, null).findViewById(R.id.upload_dialog_inputtext);
+                        //inputText = dialog.findViewById(R.id.upload_dialog_inputtext);
+                        inputText = viewInflater.findViewById(R.id.upload_dialog_inputtext);
+                        upload();
+                    }
+                })
+                .setNegativeButton("Negative", new DialogInterface.OnClickListener(){
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.cancel();
+                    }
+                });
+        //inputText = findViewById(R.id.upload_dialog_inputtext);
+        dialog = dialogBuilder.create();
+
     }
 
     @Override
@@ -81,11 +127,12 @@ public class UploadActivity extends BaseActivity {
             case GALLERY_ACCESS:
                 if(resultCode != Activity.RESULT_OK) break;
                 Uri uri = data.getData();
-                String path = FileUtil.getPath(context, uri);
-                upload_img_upload.setImageBitmap(BitmapFactory.decodeFile(path));
+                imagePath = FileUtil.getPath(context, uri);
+                upload_img_upload.setImageBitmap(BitmapFactory.decodeFile(imagePath));
                 upload_img_upload.setVisibility(View.VISIBLE);
                 upload_img_icon.setVisibility(View.GONE);
                 upload_text_guide.setVisibility(View.GONE);
+                dialog.show();
                 break;
         }
     }
@@ -94,6 +141,7 @@ public class UploadActivity extends BaseActivity {
         upload_button_area.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                initializeDialog();
                 Intent file_intent = new Intent(Intent.ACTION_GET_CONTENT);
                 file_intent.setType(FileUtil.MIME_IMAGE);
                 startActivityForResult(file_intent, GALLERY_ACCESS);
@@ -139,17 +187,19 @@ public class UploadActivity extends BaseActivity {
 
     private boolean validate(User user, String text, String imagePath) {
         if (user == null) {
-            displayToast(R.string.);
+            displayToast(getResources().getString(R.string.upload_exception_null_user));
             //Toast.makeText(context, R.string.upload_empty_user, Toast.LENGTH_SHORT).show();
             return false;
         }
 
         if (TextUtils.isEmpty(text)) {
+            displayToast(getResources().getString(R.string.upload_exception_null_text));
             //Toast.makeText(context, R.string.upload_empty_text, Toast.LENGTH_SHORT).show();
             return false;
         }
 
         if (imagePath == null) {
+            displayToast(getResources().getString(R.string.upload_exception_null_image_path));
             //Toast.makeText(context, R.string.upload_empty_image, Toast.LENGTH_SHORT).show();
             return false;
         }

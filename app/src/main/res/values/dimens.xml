@@ -23,6 +23,9 @@
     <dimen name="text_size_middle">20dp</dimen>
 
     <dimen name="item_feed_content_pic_height">150dp</dimen>
+    <dimen name="item_feed_user_pic_size">40dp</dimen>
+
     <dimen name="item_github_avartar">45dp</dimen>
+
 
 </resources>

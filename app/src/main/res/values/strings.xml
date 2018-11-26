@@ -17,8 +17,13 @@
 
     <string name="upload_text_guide">Tab here to choose photo!</string>
     <string name="upload_dialog">Please select your image</string>
+    <string name="upload_exception_null_user">User not defined</string>
+    <string name="upload_exception_null_text">Please Input any text</string>
+    <string name="upload_exception_null_image_path">Cannot find image path</string>
     <string name="upload_dialog_camera">Camera</string>
     <string name="upload_dialog_album">Album</string>
-    <string anme="upload_dialog_cancel">Cancel</string>
+    <string name="upload_dialog_cancel">Cancel</string>
+    <string name="upload_dialog_text_hint">내용을 입력해 주세요.</string>
+
 
 </resources>

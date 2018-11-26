@@ -2,6 +2,7 @@ package com.example.a0xbistrot.codingcleanic_v20.ui.main;
 
 import android.Manifest;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -90,7 +91,8 @@ public class LoginActivity extends BaseActivity {
     }
 
     private void createMaster(String name){
-        String avatarUrl = "https://avatars2.githubusercontent.com/u/37102651?s=400&v=4";
+        //String avatarUrl = "https://avatars2.githubusercontent.com/u/37102651?s=400&v=4";
+        String avatarUrl = "/Users/0xBistrot/AndroidStudioProjects/Coding_Clinic_v20/app/src/main/res/drawable/ic_if_user.xml";
         User user = new User(name, avatarUrl, true);
         userLocalSource.insert(user);
     }

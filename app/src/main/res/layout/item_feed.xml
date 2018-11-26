@@ -18,8 +18,8 @@
 
         <ImageView
             android:id="@+id/feed_user_pic"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="@dimen/item_feed_user_pic_size"
+            android:layout_height="@dimen/item_feed_user_pic_size"
             android:src="@drawable/ic_if_user"
             android:layout_margin="@dimen/margin_feed_around"
             app:layout_constraintTop_toTopOf="parent"

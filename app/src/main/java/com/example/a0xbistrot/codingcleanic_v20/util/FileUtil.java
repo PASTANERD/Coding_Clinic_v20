@@ -27,10 +27,23 @@ public class FileUtil {
                     return Environment.getExternalStorageDirectory().getAbsolutePath() + "/" + split[1];
                 }
             } else if (isDownloadsDocument(uri)) {
+
                 String id = DocumentsContract.getDocumentId(uri);
-                Uri contentUri = ContentUris.withAppendedId(
-                        Uri.parse("content://downloads/public_downloads"), Long.parseLong(id));
-                return getDataColumn(context, contentUri, null, null);
+                if (id.startsWith("raw:")) {
+                    return id.replaceFirst("raw:", "");
+                }
+                try {
+                    final Uri contentUri = ContentUris.withAppendedId(
+                            Uri.parse("content://downloads/public_downloads"), Long.valueOf(id));
+                    return getDataColumn(context, contentUri, null, null);
+                } catch (NumberFormatException e) {
+                    return null;
+                }
+               // Uri contentUri = ContentUris.withAppendedId(
+                        //Uri.parse("content://downloads/public_downloads"), Long.parseLong(id));
+                        //Uri.parse("raw:/storage/emulated/0/Download"), Long.parseLong(id));
+                        //Uri.parse(""), Long.parseLong(id));
+                //return getDataColumn(context, contentUri, null, null);
             }
         } else if (isMediaDocument(uri)) {
             String docId = DocumentsContract.getDocumentId(uri);

@@ -56,6 +56,8 @@ public class BaseActivity extends AppCompatActivity { // abstract화 한 이유 
     }
 
     protected void initToolBar(Toolbar toolbar){
+        //Todo override
+
         toolbar = findViewById(R.id.toolbar);
         if(toolbar == null) initToolBar(toolbar);
         setSupportActionBar(toolbar);
@@ -67,7 +69,6 @@ public class BaseActivity extends AppCompatActivity { // abstract화 한 이유 
                 onBackPressed();
             }
         });
-        //Todo override
     }
 
     @Override

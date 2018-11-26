@@ -2,6 +2,7 @@ package com.example.a0xbistrot.codingcleanic_v20.ui.main;
 
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.view.View;
 
 import com.example.a0xbistrot.codingcleanic_v20.R;
 import com.example.a0xbistrot.codingcleanic_v20.ui.basement.BaseActivity;
@@ -12,6 +13,7 @@ import com.example.a0xbistrot.codingcleanic_v20.ui.user.UserFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
@@ -34,7 +36,22 @@ public class MainActivity extends BaseActivity {
         bottomNavigationView.setSelectedItemId(R.id.bottom_menu_feed);
 
     }
-
+/*
+    @Override
+    protected void initToolBar(Toolbar toolbar) {
+        toolbar = findViewById(R.id.toolbar);
+        if(toolbar == null) initToolBar(toolbar);
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_arrow_back_white_24dp);
+        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onBackPressed();
+            }
+        });
+    }
+*/
     private void setArgument(){
         userID = getIntent().getStringExtra(USER_KEY);
         displayToast("Hello. "+ userID);
