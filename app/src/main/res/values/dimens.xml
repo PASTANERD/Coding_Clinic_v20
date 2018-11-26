@@ -9,6 +9,8 @@
     <dimen name="login_pw_h">40dp</dimen>
     <dimen name="login_btn_w">80dp</dimen>
     <dimen name="login_btn_h">50dp</dimen>
+    <dimen name="login_bar_width">180dp</dimen>
+    <dimen name="login_bar_height">20dp</dimen>
 
     <dimen name="margin_top">80dp</dimen>
     <dimen name="margin_vertical">80dp</dimen>

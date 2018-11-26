@@ -9,6 +9,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
 import android.provider.MediaStore;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
 import android.widget.FrameLayout;
@@ -16,6 +17,10 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.a0xbistrot.codingcleanic_v20.R;
+import com.example.a0xbistrot.codingcleanic_v20.data.entity.Feed;
+import com.example.a0xbistrot.codingcleanic_v20.data.entity.User;
+import com.example.a0xbistrot.codingcleanic_v20.data.source.FeedLocalSource;
+import com.example.a0xbistrot.codingcleanic_v20.data.source.UserLocalSource;
 import com.example.a0xbistrot.codingcleanic_v20.ui.basement.BaseActivity;
 import com.example.a0xbistrot.codingcleanic_v20.util.FileUtil;
 import com.tbruyelle.rxpermissions2.RxPermissions;
@@ -40,6 +45,9 @@ public class UploadActivity extends BaseActivity {
     private ImageView upload_img_icon;
     private TextView upload_text_guide;
     private FrameLayout upload_button_area;
+
+    private UserLocalSource userLocalSource;
+    private FeedLocalSource feedLocalSource;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -92,73 +100,7 @@ public class UploadActivity extends BaseActivity {
             }
         });
 
-        /*
-        upload_button_area.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-                DialogInterface.OnClickListener cameraListener = new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialogInterface, int i) {
-                        activeCamera();
-                    }
-                };
-
-                DialogInterface.OnClickListener albumListener = new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialogInterface, int i) {
-                        activeAlbum();
-                    }
-                };
-
-                DialogInterface.OnClickListener cancelListener = new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialogInterface, int i) {
-                        dialogInterface.dismiss();
-                    }
-                };
-
-//                new AlertDialog.Builder(this).setTitle(R.string.upload_dialog)
-  //                      .setPositiveButton(R.string.upload_dialog_camera, cameraListener)
-    //                    .setNeutralButton(R.string.upload_dialog_album, albumListener)
-                displayToast("upload system is constructing now...");
-            }
-        });
-        */
     }
-
-    /*
-
-    private void activeCamera(){
-        Intent cameraIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-        startActivityForResult(cameraIntent, CAMERA_ACCESS);
-        //String cameraUrl = "tmp_" + String.valueOf(System.currentTimeMillis()) + ".jpg";
-    }
-
-    private void activeAlbum(){
-        String state = Environment.getExternalStorageState();
-        if(Environment.MEDIA_MOUNTED.equals(state)){
-            Intent albumIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-            if(albumIntent.resolveActivity(getPackageManager()) != null){
-                File photoFile = null;
-
-                try{
-                    //photoFile = createImageFile();
-                }catch (IOException){
-                    Log.d(TAG, "activeAlbum() method");
-                }
-
-                if(photoFile != null){
-                    photoUri = FileProvider.getUriForFile(this, getPackageName(), photoFile);
-                    albumIntent.putExtra(MediaStore.EXTRA_OUTPUT, photoUri);
-                    startActivityForResult(albumIntent, CAMERA_ACCESS);
-                }
-            }
-        }
-    }
-
-    */
-
 
     private void setFeedData(){
         /*
@@ -183,5 +125,35 @@ public class UploadActivity extends BaseActivity {
         */
         //feedAdapter.addAll(feedItemsList);
 
+    }
+    private void upload() {
+        User user = userLocalSource.getMaster();
+        String text = inputText.getText().toString();
+
+        if (!validate(user, text, imagePath)) return;
+
+        Feed feed = new Feed(user.getId(), inputText.getText().toString(), imagePath);
+        feedLocalSource.insert(feed);
+        finish();
+    }
+
+    private boolean validate(User user, String text, String imagePath) {
+        if (user == null) {
+            displayToast(R.string.);
+            //Toast.makeText(context, R.string.upload_empty_user, Toast.LENGTH_SHORT).show();
+            return false;
+        }
+
+        if (TextUtils.isEmpty(text)) {
+            //Toast.makeText(context, R.string.upload_empty_text, Toast.LENGTH_SHORT).show();
+            return false;
+        }
+
+        if (imagePath == null) {
+            //Toast.makeText(context, R.string.upload_empty_image, Toast.LENGTH_SHORT).show();
+            return false;
+        }
+
+        return true;
     }
 }

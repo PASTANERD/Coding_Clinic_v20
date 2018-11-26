@@ -4,15 +4,18 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 
-    <string name="login_text_title">Ingstagram</string>
+    <string name="login_text_title">Pastarian</string>
     <string name="login_text_id">ID</string>
     <string name="login_text_pw">PW</string>
     <string name="login_btn_text">Go!</string>
     <string name="login_permission">Login Success</string>
+    <string name="login_facebook">Log in with Facebook</string>
+    <string name="login_kakaotalk">카카오계정으로 로그인</string>
+    <string name="login_email">이메일로 로그인하기</string>
 
     <string name="feed_user_id_test">user20181105</string>
 
-    <string name="upload_text_guide">Tab here to upload!</string>
+    <string name="upload_text_guide">Tab here to choose photo!</string>
     <string name="upload_dialog">Please select your image</string>
     <string name="upload_dialog_camera">Camera</string>
     <string name="upload_dialog_album">Album</string>

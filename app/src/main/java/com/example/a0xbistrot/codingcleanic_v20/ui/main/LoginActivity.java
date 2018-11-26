@@ -63,6 +63,8 @@ public class LoginActivity extends BaseActivity {
 
 
     private void setButton(){
+
+
         login_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -84,6 +86,7 @@ public class LoginActivity extends BaseActivity {
                 }
             }
         });
+
     }
 
     private void createMaster(String name){
